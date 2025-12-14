@@ -1,10 +1,13 @@
 -- Saving, quitting
 vim.keymap.set({'n', 'x'}, '<leader>w', '<cmd>w<cr>')
-vim.keymap.set({'n', 'x'}, '<leader>W', '<cmd>w<cr>', { remap = true })
-vim.keymap.set({'n', 'x'}, '<leader>q', '<cmd>q<cr>', { remap = true })
-vim.keymap.set({'n', 'x'}, '<leader>Q', '<cmd>qa<cr>', { remap = true })
+vim.keymap.set({'n', 'x'}, '<leader>W', '<cmd>w<cr>')
+vim.keymap.set({'n', 'x'}, '<leader>q', '<cmd>q<cr>')
+vim.keymap.set({'n', 'x'}, '<leader>Q', '<cmd>qa<cr>')
 
--- Comment
+-- Navigation
+vim.keymap.set({'n', 'x'}, '<leader>E', '<cmd>Ex<cr>')
+
+-- Commenting
 vim.keymap.set('n', '<leader>/', 'gcc', { remap = true })
 vim.keymap.set('x', '<leader>/', 'gc', { remap = true })
 

@@ -9,13 +9,12 @@ return {
         lazy = false,
         build = ":TSUpdate",
         config = function()
-            local file_types = { 'python', 'lua', 'c' }
-            require('nvim-treesitter').install(file_types)
-            vim.api.nvim_create_autocmd('FileType', {
-                pattern = file_types,
-                callback = function()
-                    vim.treesitter.start()
-                end,
+            require('nvim-treesitter').install({
+                'python',
+                'lua',
+                'c',
+                'cpp',
+                'bash'
             })
         end,
     },
