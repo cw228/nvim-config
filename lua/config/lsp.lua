@@ -25,7 +25,15 @@ vim.lsp.config('pyright', {
     capabilities = capabilities,
 })
 
+vim.lsp.config('terraform-ls', {
+    capabilities = capabilities,
+    -- on_attach = function (client, _)
+    --     client.server_capabilities.semanticTokensProvider = nil
+    -- end
+})
+
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('pyright')
 vim.lsp.enable('clangd')
+vim.lsp.enable('terraformls')
 
