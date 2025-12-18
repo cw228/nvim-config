@@ -23,7 +23,24 @@ return {
 
         'nvim-telescope/telescope.nvim',
         tag = 'v0.1.9',
-        dependencies = { 'nvim-lua/plenary.nvim' }
+        dependencies = { 'nvim-lua/plenary.nvim', 'scottmckendry/pick-resession.nvim' },
+        opts = {
+            defaults = {
+                file_ignore_patterns = { "^.git/" } -- always ignore .git
+            },
+            pickers = {
+                find_files = {
+                    hidden = true -- but show other hidden files
+                }
+            },
+            extensions = {
+                resession = {
+                    prompt_title = "Find Sessions", -- telescope prompt title
+                    dir = "session", -- directory where resession stores sessions
+                    layout = nil -- telescope picker layout, defaults to dropdown if not set
+                },
+            }
+        }
     },
     {
         'smoka7/hop.nvim',
@@ -113,12 +130,16 @@ return {
 
         end,
     },
+    -- {
+    --     "folke/persistence.nvim",
+    --     event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    --     opts = {
+    --         -- add any custom options here
+    --     }
+    -- },
     {
-        "folke/persistence.nvim",
-        event = "BufReadPre", -- this will only start session saving when an actual file was opened
-        opts = {
-            -- add any custom options here
-        }
+        'stevearc/resession.nvim',
+        opts = {},
     },
     {
         'nvim-lualine/lualine.nvim',

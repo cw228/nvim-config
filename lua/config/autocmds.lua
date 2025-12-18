@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'lua', 'python', 'sh', 'c', 'cpp', 'terraform'},
+    pattern = {'lua', 'python', 'sh', 'c', 'cpp', 'terraform', 'terraform-vars'},
     callback = function()
         vim.treesitter.start()
     end,
@@ -42,4 +42,18 @@ vim.api.nvim_create_autocmd('ColorScheme', {
         vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
     end,
 })
+
+-- Recession
+local resession = require('resession')
+
+-- Automatically save sessions on by working directory on exit
+vim.api.nvim_create_autocmd("VimLeavePre", {
+    callback = function()
+        resession.save(vim.fn.getcwd(), { notify = true })
+    end,
+})
+
+resession.add_hook("pre_load", function()
+    resession.save(vim.fn.getcwd(), { notify = true })
+end)
 

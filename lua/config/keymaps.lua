@@ -34,6 +34,8 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 local telescope = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>p', telescope.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>f', telescope.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>s', '<cmd>Telescope resession<cr>', { desc = 'Telescope find sessions' })
 
 -- Hop
 local hop = require('hop')
@@ -44,15 +46,24 @@ vim.keymap.set('', 'fb', function() hop.hint_words({ direction = directions.BEFO
 vim.keymap.set('', 'fj', function() hop.hint_vertical({ direction = directions.AFTER_CURSOR }) end)
 vim.keymap.set('', 'fk', function() hop.hint_vertical({ direction = directions.BEFORE_CURSOR }) end)
 
+-- Resession
+-- local resession = require("resession")
+-- vim.keymap.set("n", "<leader>ss", resession.save)
+-- vim.keymap.set("n", "<leader>sl", resession.load)
+-- vim.keymap.set("n", "<leader>sd", resession.delete)
+
+
 -- Persistence
 -- load the session for the current directory
 -- vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end)
 
 -- select a session to load
-vim.keymap.set("n", "<leader>sl", function() require("persistence").select() end)
+-- vim.keymap.set("n", "<leader>sl", function()
+--     require("persistence").select()
+-- end)
 
 -- load the last session
-vim.keymap.set("n", "<leader>ss", function() require("persistence").load({ last = true }) end)
+-- vim.keymap.set("n", "<leader>ss", function() require("persistence").load({ last = true }) end)
 
 -- stop Persistence => session won't be saved on exit
 -- vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end)
