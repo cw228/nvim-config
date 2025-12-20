@@ -7,3 +7,5 @@ vim.opt.clipboard = 'unnamedplus'
 vim.cmd.colorscheme('rose-pine')
 vim.highlight.priorities.semantic_tokens = 95  -- Treesitter priority is 100, so this makes semantic tokens lower priority
 
+vim.g.netrw_banner = 0
+

@@ -15,7 +15,8 @@ return {
                 'c',
                 'cpp',
                 'bash',
-                'terraform'
+                'terraform',
+                'cmake'
             })
         end,
     },
@@ -51,15 +52,24 @@ return {
     },
     {
         'folke/tokyonight.nvim',
-        lazy = false,
+        name = 'tokyonight',
+        lazy = true,
         priority = 1000,
     },
     {
         'rose-pine/neovim',
-        name = 'rose-pine'
+        name = 'rose-pine',
+        lazy = true,
+		priority = 1000,
     },
+	{
+		'rebelot/kanagawa.nvim',
+        name = 'kanagawa',
+		lazy = true,
+		priority = 1000,
+	},
     {
-        "L3MON4D3/LuaSnip",
+        'L3MON4D3/LuaSnip',
         version = "v2.*",
         dependencies = {
             'rafamadriz/friendly-snippets',
@@ -130,13 +140,6 @@ return {
 
         end,
     },
-    -- {
-    --     "folke/persistence.nvim",
-    --     event = "BufReadPre", -- this will only start session saving when an actual file was opened
-    --     opts = {
-    --         -- add any custom options here
-    --     }
-    -- },
     {
         'stevearc/resession.nvim',
         opts = {},
@@ -150,7 +153,7 @@ return {
                 lualine_b = {'branch', 'diff', 'diagnostics'},
                 lualine_c = {},
                 lualine_x = {},
-                lualine_y = {'filename'},
+                lualine_y = { {'filename', path = 3} },
                 lualine_z = {'location'}
             },
             inactive_sections = {
@@ -182,10 +185,12 @@ return {
             "nvim-lua/plenary.nvim",
         },
         -- setting the keybinding for LazyGit with 'keys' is recommended in
-        -- order to load the plugin when the command is run for the first time
+        -- order to load thegg plugin when the command is run for the first time
         keys = {
             { "<leader>g", "<cmd>LazyGit<cr>", desc = "LazyGit" }
         }
-    }
+    },
+    { 'nvim-mini/mini.pairs', version = false, opts = {} }
+
 }
 

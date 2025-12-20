@@ -46,25 +46,22 @@ vim.keymap.set('', 'fb', function() hop.hint_words({ direction = directions.BEFO
 vim.keymap.set('', 'fj', function() hop.hint_vertical({ direction = directions.AFTER_CURSOR }) end)
 vim.keymap.set('', 'fk', function() hop.hint_vertical({ direction = directions.BEFORE_CURSOR }) end)
 
--- Resession
--- local resession = require("resession")
--- vim.keymap.set("n", "<leader>ss", resession.save)
--- vim.keymap.set("n", "<leader>sl", resession.load)
--- vim.keymap.set("n", "<leader>sd", resession.delete)
+-- Luasnip
+local luasnip = require('luasnip')
 
+vim.keymap.set({'i', 's'}, '<Tab>', function()
+  if luasnip.expand_or_jumpable() then
+    luasnip.expand_or_jump()
+  else
+    return '<Tab>'
+  end
+end, { expr = true })
 
--- Persistence
--- load the session for the current directory
--- vim.keymap.set("n", "<leader>qs", function() require("persistence").load() end)
-
--- select a session to load
--- vim.keymap.set("n", "<leader>sl", function()
---     require("persistence").select()
--- end)
-
--- load the last session
--- vim.keymap.set("n", "<leader>ss", function() require("persistence").load({ last = true }) end)
-
--- stop Persistence => session won't be saved on exit
--- vim.keymap.set("n", "<leader>qd", function() require("persistence").stop() end)
+vim.keymap.set({'i', 's'}, '<S-Tab>', function()
+  if luasnip.jumpable(-1) then
+    luasnip.jump(-1)
+  else
+    return '<S-Tab>'
+  end
+end, { expr = true })
 

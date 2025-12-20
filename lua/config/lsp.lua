@@ -21,19 +21,14 @@ vim.lsp.config('lua_ls', {
     },
 })
 
-vim.lsp.config('pyright', {
-    capabilities = capabilities,
-})
-
-vim.lsp.config('terraform-ls', {
-    capabilities = capabilities,
-    -- on_attach = function (client, _)
-    --     client.server_capabilities.semanticTokensProvider = nil
-    -- end
-})
+vim.lsp.config('pyright', { capabilities = capabilities })
+vim.lsp.config('clangd', { capabilities = capabilities })
+vim.lsp.config('terraformls', { capabilities = capabilities })
+-- vim.lsp.config('neocmake', { capabilities = capabilities })
 
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('pyright')
 vim.lsp.enable('clangd')
 vim.lsp.enable('terraformls')
+-- vim.lsp.enable('neocmake')
 
