@@ -38,8 +38,14 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     callback = function()
         vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
         vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'NONE' })
-        vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'NONE' })
         vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
+
+        -- local float_color = '#1F1E27'
+        local float_color = '#292833'
+
+        vim.api.nvim_set_hl(0, 'NormalFloat', { bg = float_color })
+        vim.api.nvim_set_hl(0, 'FloatBorder', { bg = float_color })
+        vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = float_color })
     end,
 })
 
