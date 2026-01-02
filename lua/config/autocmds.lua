@@ -16,24 +16,30 @@ vim.api.nvim_create_autocmd('FileType', {
 -- Change working directory to the directory opened, or if opened a file, to that file's project root.
 vim.api.nvim_create_autocmd('VimEnter', {
     callback = function()
-        local cd_and_load_session = function(path)
+        local chdir = function(path)
             vim.cmd('cd ' .. path)
-            require('resession').load(vim.fn.getcwd(), { silence_errors = true })
+        end
+
+        local load_session = function(session)
+            require('resession').load(session, { silence_errors = true })
         end
 
         local first_arg = vim.fn.argv(0)
         if first_arg and first_arg ~= '' then
             local path = vim.fn.expand(first_arg --[[@as string]])
             if vim.fn.isdirectory(path) == 1 then
-                cd_and_load_session(path)
+                chdir(path)
+                load_session(vim.fn.getcwd())
             else
                 local root = vim.fs.root(0, {'.git'})
                 if root then
-                    cd_and_load_session(root)
+                    chdir(root)
                 else
-                    cd_and_load_session(vim.fn.fnamemodify(path, ':h'))
+                    chdir(vim.fn.fnamemodify(path, ':h'))
                 end
             end
+        else
+            load_session('last')
         end
     end,
 })
@@ -61,6 +67,7 @@ local resession = require('resession')
 vim.api.nvim_create_autocmd("VimLeavePre", {
     callback = function()
         resession.save(vim.fn.getcwd(), { notify = false })
+        resession.save('last', { notify = false })
     end,
 })
 
