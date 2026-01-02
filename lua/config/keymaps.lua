@@ -65,3 +65,6 @@ vim.keymap.set({'i', 's'}, '<S-Tab>', function()
   end
 end, { expr = true })
 
+-- Lazy
+vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
+
