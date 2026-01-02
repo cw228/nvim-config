@@ -61,6 +61,12 @@ return {
         name = 'rose-pine',
         lazy = true,
 		priority = 1000,
+        opts = {
+            styles = {
+                bold = false,
+                italic = false
+            }
+        }
     },
 	{
 		'rebelot/kanagawa.nvim',
