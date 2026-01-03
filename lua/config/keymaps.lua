@@ -1,9 +1,3 @@
--- Saving, quitting
-vim.keymap.set({'n', 'x'}, '<leader>w', '<cmd>w<cr>')
-vim.keymap.set({'n', 'x'}, '<leader>W', '<cmd>wa<cr>')
-vim.keymap.set({'n', 'x'}, '<leader>q', '<cmd>q<cr>')
-vim.keymap.set({'n', 'x'}, '<leader>Q', '<cmd>qa<cr>')
-
 -- Navigation
 vim.keymap.set({'n', 'x'}, '<leader>E', '<cmd>Ex<cr>')
 
