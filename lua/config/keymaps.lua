@@ -34,17 +34,28 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 local telescope = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>p', telescope.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>f', telescope.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>r', telescope.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>s', '<cmd>Telescope resession<cr>', { desc = 'Telescope find sessions' })
 
 -- Hop
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
+local positions = require('hop.hint').HintPosition
 
-vim.keymap.set('', 'fw', function() hop.hint_words({ direction = directions.AFTER_CURSOR }) end)
-vim.keymap.set('', 'fb', function() hop.hint_words({ direction = directions.BEFORE_CURSOR }) end)
-vim.keymap.set('', 'fj', function() hop.hint_vertical({ direction = directions.AFTER_CURSOR }) end)
-vim.keymap.set('', 'fk', function() hop.hint_vertical({ direction = directions.BEFORE_CURSOR }) end)
+vim.keymap.set('', '<leader>w', function() hop.hint_words({ direction = directions.AFTER_CURSOR }) end)
+vim.keymap.set('', '<leader>b', function() hop.hint_words({ direction = directions.BEFORE_CURSOR }) end)
+vim.keymap.set('', '<leader>j', function() hop.hint_vertical({ direction = directions.AFTER_CURSOR }) end)
+vim.keymap.set('', '<leader>k', function() hop.hint_vertical({ direction = directions.BEFORE_CURSOR }) end)
+vim.keymap.set('', '<leader>e', function() hop.hint_words({
+        direction = directions.AFTER_CURSOR,
+        hint_position = positions.END
+    })
+end)
+vim.keymap.set('', '<leader>B', function() hop.hint_words({
+        direction = directions.BEFORE_CURSOR,
+        hint_position = positions.END
+    })
+end)
 
 -- Luasnip
 local luasnip = require('luasnip')
