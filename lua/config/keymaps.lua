@@ -1,9 +1,17 @@
--- Navigation
-vim.keymap.set({'n', 'x'}, '<leader>E', '<cmd>Ex<cr>')
+-- Saving, quitting
+vim.keymap.set('n', '<c-s>', '<cmd>w<cr>', { remap = true })
+vim.keymap.set('n', '<c-s-s>', '<cmd>wa<cr>', { remap = true })
+vim.keymap.set('n', '<c-q>', '<cmd>bd<cr>', { remap = true })
+vim.keymap.set('n', '<c-s-q>', '<cmd>qa<cr>', { remap = true })
 
 -- Commenting
 vim.keymap.set('n', '<leader>/', 'gcc', { remap = true })
 vim.keymap.set('x', '<leader>/', 'gc', { remap = true })
+
+-- Buffers
+vim.keymap.set('n', '<leader>d', '<cmd>bd<cr>')
+vim.keymap.set('n', 'L', '<cmd>bn<cr>', { noremap = true})
+vim.keymap.set('n', 'H', '<cmd>bp<cr>', { noremap = true})
 
 -- Move between split buffers
 vim.keymap.set('n', '<leader>h', '<c-w>h', { remap = true })
