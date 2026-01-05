@@ -196,6 +196,13 @@ return {
             { "<leader>g", "<cmd>LazyGit<cr>", desc = "LazyGit" }
         }
     },
-    { 'nvim-mini/mini.pairs', version = false, opts = {} }
+    { 'nvim-mini/mini.pairs', version = false, opts = {} },
+    { 'nvim-mini/mini.surround', version = false, opts = {} },
+    {
+        'akinsho/bufferline.nvim',
+        version = '*',
+        opts = {},
+        dependencies = { 'nvim-tree/nvim-web-devicons' },
+    }
 }
 

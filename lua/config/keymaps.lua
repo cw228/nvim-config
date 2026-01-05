@@ -1,15 +1,17 @@
 -- Saving, quitting
-vim.keymap.set({'n', 'x'}, '<leader>w', '<cmd>w<cr>')
-vim.keymap.set({'n', 'x'}, '<leader>W', '<cmd>wa<cr>')
-vim.keymap.set({'n', 'x'}, '<leader>q', '<cmd>q<cr>')
-vim.keymap.set({'n', 'x'}, '<leader>Q', '<cmd>qa<cr>')
-
--- Navigation
-vim.keymap.set({'n', 'x'}, '<leader>E', '<cmd>Ex<cr>')
+vim.keymap.set('n', '<c-s>', '<cmd>w<cr>', { remap = true })
+vim.keymap.set('n', '<c-s-s>', '<cmd>wa<cr>', { remap = true })
+vim.keymap.set('n', '<c-q>', '<cmd>bd<cr>', { remap = true })
+vim.keymap.set('n', '<c-s-q>', '<cmd>qa<cr>', { remap = true })
 
 -- Commenting
 vim.keymap.set('n', '<leader>/', 'gcc', { remap = true })
 vim.keymap.set('x', '<leader>/', 'gc', { remap = true })
+
+-- Buffers
+vim.keymap.set('n', '<leader>d', '<cmd>bd<cr>')
+vim.keymap.set('n', 'L', '<cmd>bn<cr>', { noremap = true})
+vim.keymap.set('n', 'H', '<cmd>bp<cr>', { noremap = true})
 
 -- Move between split buffers
 vim.keymap.set('n', '<leader>h', '<c-w>h', { remap = true })
@@ -34,17 +36,28 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 local telescope = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>p', telescope.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>f', telescope.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>r', telescope.live_grep, { desc = 'Telescope live grep' })
 vim.keymap.set('n', '<leader>s', '<cmd>Telescope resession<cr>', { desc = 'Telescope find sessions' })
 
 -- Hop
 local hop = require('hop')
 local directions = require('hop.hint').HintDirection
+local positions = require('hop.hint').HintPosition
 
-vim.keymap.set('', 'fw', function() hop.hint_words({ direction = directions.AFTER_CURSOR }) end)
-vim.keymap.set('', 'fb', function() hop.hint_words({ direction = directions.BEFORE_CURSOR }) end)
-vim.keymap.set('', 'fj', function() hop.hint_vertical({ direction = directions.AFTER_CURSOR }) end)
-vim.keymap.set('', 'fk', function() hop.hint_vertical({ direction = directions.BEFORE_CURSOR }) end)
+vim.keymap.set('', '<leader>w', function() hop.hint_words({ direction = directions.AFTER_CURSOR }) end)
+vim.keymap.set('', '<leader>b', function() hop.hint_words({ direction = directions.BEFORE_CURSOR }) end)
+vim.keymap.set('', '<leader>j', function() hop.hint_vertical({ direction = directions.AFTER_CURSOR }) end)
+vim.keymap.set('', '<leader>k', function() hop.hint_vertical({ direction = directions.BEFORE_CURSOR }) end)
+vim.keymap.set('', '<leader>e', function() hop.hint_words({
+        direction = directions.AFTER_CURSOR,
+        hint_position = positions.END
+    })
+end)
+vim.keymap.set('', '<leader>B', function() hop.hint_words({
+        direction = directions.BEFORE_CURSOR,
+        hint_position = positions.END
+    })
+end)
 
 -- Luasnip
 local luasnip = require('luasnip')
