@@ -27,7 +27,7 @@ return {
         dependencies = { 'nvim-lua/plenary.nvim', 'scottmckendry/pick-resession.nvim' },
         opts = {
             defaults = {
-                file_ignore_patterns = { "^.git/" }, -- always ignore .git
+                file_ignore_patterns = { "^.git/", "^./.git/" }, -- always ignore .git
             },
             pickers = {
                 find_files = {
@@ -197,6 +197,5 @@ return {
         }
     },
     { 'nvim-mini/mini.pairs', version = false, opts = {} }
-
 }
 

@@ -57,13 +57,13 @@ vim.api.nvim_create_autocmd('ColorScheme', {
         vim.api.nvim_set_hl(0, 'NormalFloat', { bg = float_color })
         vim.api.nvim_set_hl(0, 'FloatBorder', { bg = float_color })
         vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = float_color })
-    end,
+    end
 })
 
 -- Recession
 local resession = require('resession')
 
--- Automatically save sessions on by working directory on exit
+-- Automatically save sessions by working directory on exit
 vim.api.nvim_create_autocmd("VimLeavePre", {
     callback = function()
         resession.save(vim.fn.getcwd(), { notify = false })
@@ -71,6 +71,7 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
     end,
 })
 
+-- Save the session when switching to a different sessions
 resession.add_hook("pre_load", function()
     resession.save(vim.fn.getcwd(), { notify = false })
 end)
