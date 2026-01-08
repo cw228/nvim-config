@@ -3,9 +3,11 @@ vim.keymap.set('n', '<leader>E', '<cmd>Ex<cr>')
 
 -- Saving, quitting
 vim.keymap.set('n', '<leader>fw', '<cmd>w<cr>')
-vim.keymap.set('n', '<leader>fW', '<cmd>wa<cr>')
-vim.keymap.set('n', '<leader>fq', '<cmd>bd<cr>')
-vim.keymap.set('n', '<leader>fQ', '<cmd>qa<cr>')
+vim.keymap.set('n', '<leader>fa', '<cmd>wa<cr>')
+vim.keymap.set('n', '<leader>fq', '<cmd>qa<cr>')
+vim.keymap.set('n', '<leader>fd', '<cmd>bd<cr>')
+vim.keymap.set('n', '<leader>fp', '<cmd>bp<cr>')
+vim.keymap.set('n', '<leader>fn', '<cmd>bn<cr>')
 
 -- Commenting
 vim.keymap.set('n', '<leader>/', 'gcc', { remap = true })
@@ -84,4 +86,7 @@ end, { expr = true })
 
 -- Lazy
 vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
+
+-- Neotree
+vim.keymap.set('n', '<leader>x', '<cmd>Neotree toggle right<cr>', { desc = 'Toggle Neotree' })
 

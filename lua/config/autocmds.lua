@@ -30,6 +30,7 @@ vim.api.nvim_create_autocmd('VimEnter', {
             if vim.fn.isdirectory(path) == 1 then
                 chdir(path)
                 load_session(vim.fn.getcwd())
+                print('hello?')
             else
                 local root = vim.fs.root(0, {'.git'})
                 if root then
@@ -66,6 +67,8 @@ local resession = require('resession')
 -- Automatically save sessions by working directory on exit
 vim.api.nvim_create_autocmd("VimLeavePre", {
     callback = function()
+        -- Close Neotree before saving session - it causes issues
+        vim.cmd('Neotree close')
         resession.save(vim.fn.getcwd(), { notify = false })
         resession.save('last', { notify = false })
     end,
@@ -73,6 +76,7 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
 
 -- Save the session when switching to a different sessions
 resession.add_hook("pre_load", function()
+    vim.cmd('Neotree close')
     resession.save(vim.fn.getcwd(), { notify = false })
 end)
 

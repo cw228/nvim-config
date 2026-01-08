@@ -47,7 +47,8 @@ return {
         'smoka7/hop.nvim',
         version = "*",
         opts = {
-            keys = 'etovxqpdygfblzhckisuran'
+            keys = 'etovxqpdygfblzhckisuran',
+            teasing = false
         }
     },
     {
@@ -198,6 +199,21 @@ return {
     },
     { 'nvim-mini/mini.pairs', version = false, opts = {} },
     { 'nvim-mini/mini.surround', version = false, opts = {} },
-    { "karb94/neoscroll.nvim", opts = { easing = 'cubic', duration_multiplier = 0.5 } }
+    { 'karb94/neoscroll.nvim', opts = { easing = 'cubic', duration_multiplier = 0.5 } },
+    {
+        'nvim-neo-tree/neo-tree.nvim',
+        branch = 'v3.x',
+        dependencies = {
+          'nvim-lua/plenary.nvim',
+          'MunifTanjim/nui.nvim',
+          'nvim-tree/nvim-web-devicons', -- optional, but recommended
+        },
+        lazy = false, -- neo-tree will lazily load itself
+        opts = {
+            filesystem = {
+                hijack_netrw_behavior = "disabled"
+            }
+        }
+    }
 }
 
