@@ -3,7 +3,8 @@ return {
         'neovim/nvim-lspconfig'
     },
     {
-        -- Requires tree-sitter-cli (https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md)
+        -- Requires tree-sitter-cli 
+        -- https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md
         'nvim-treesitter/nvim-treesitter',
         branch = 'main',
         lazy = false,
