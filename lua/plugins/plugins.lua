@@ -198,11 +198,6 @@ return {
     },
     { 'nvim-mini/mini.pairs', version = false, opts = {} },
     { 'nvim-mini/mini.surround', version = false, opts = {} },
-    {
-        'akinsho/bufferline.nvim',
-        version = '*',
-        opts = {},
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-    }
+    { "karb94/neoscroll.nvim", opts = { easing = 'cubic', duration_multiplier = 0.5 } }
 }
 

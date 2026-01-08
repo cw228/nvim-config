@@ -1,8 +1,11 @@
+-- Explore
+vim.keymap.set('n', '<leader>E', '<cmd>Ex<cr>')
+
 -- Saving, quitting
-vim.keymap.set('n', '<c-s>', '<cmd>w<cr>', { remap = true })
-vim.keymap.set('n', '<c-s-s>', '<cmd>wa<cr>', { remap = true })
-vim.keymap.set('n', '<c-q>', '<cmd>bd<cr>', { remap = true })
-vim.keymap.set('n', '<c-s-q>', '<cmd>qa<cr>', { remap = true })
+vim.keymap.set('n', '<leader>fw', '<cmd>w<cr>')
+vim.keymap.set('n', '<leader>fW', '<cmd>wa<cr>')
+vim.keymap.set('n', '<leader>fq', '<cmd>bd<cr>')
+vim.keymap.set('n', '<leader>fQ', '<cmd>qa<cr>')
 
 -- Commenting
 vim.keymap.set('n', '<leader>/', 'gcc', { remap = true })
@@ -10,14 +13,14 @@ vim.keymap.set('x', '<leader>/', 'gc', { remap = true })
 
 -- Buffers
 vim.keymap.set('n', '<leader>d', '<cmd>bd<cr>')
-vim.keymap.set('n', 'L', '<cmd>bn<cr>', { noremap = true})
-vim.keymap.set('n', 'H', '<cmd>bp<cr>', { noremap = true})
+vim.keymap.set('n', 'L', '<cmd>bn<cr>')
+vim.keymap.set('n', 'H', '<cmd>bp<cr>')
 
 -- Move between split buffers
-vim.keymap.set('n', '<leader>h', '<c-w>h', { remap = true })
-vim.keymap.set('n', '<leader>j', '<c-w>j', { remap = true })
-vim.keymap.set('n', '<leader>k', '<c-w>k', { remap = true })
-vim.keymap.set('n', '<leader>l', '<c-w>l', { remap = true })
+vim.keymap.set('n', '<leader>vh', '<c-w>h', { remap = true })
+vim.keymap.set('n', '<leader>vj', '<c-w>j', { remap = true })
+vim.keymap.set('n', '<leader>vk', '<c-w>k', { remap = true })
+vim.keymap.set('n', '<leader>vl', '<c-w>l', { remap = true })
 
 -- Indent
 vim.keymap.set('n', '>', '>>w', { remap = true })
@@ -37,6 +40,7 @@ local telescope = require('telescope.builtin')
 
 vim.keymap.set('n', '<leader>p', telescope.find_files, { desc = 'Telescope find files' })
 vim.keymap.set('n', '<leader>r', telescope.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>t', telescope.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>s', '<cmd>Telescope resession<cr>', { desc = 'Telescope find sessions' })
 
 -- Hop
