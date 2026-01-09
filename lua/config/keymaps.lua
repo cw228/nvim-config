@@ -8,17 +8,25 @@ vim.keymap.set('n', '<leader>fq', '<cmd>qa<cr>')
 vim.keymap.set('n', '<leader>fd', '<cmd>bd<cr>')
 vim.keymap.set('n', '<leader>fp', '<cmd>bp<cr>')
 vim.keymap.set('n', '<leader>fn', '<cmd>bn<cr>')
+vim.keymap.set('n', '<leader>fh', '<cmd>%bd|e#|bd#<cr>')
 
 -- Commenting
 vim.keymap.set('n', '<leader>/', 'gcc', { remap = true })
 vim.keymap.set('x', '<leader>/', 'gc', { remap = true })
 
 -- Buffers
-vim.keymap.set('n', '<leader>d', '<cmd>bd<cr>')
 vim.keymap.set('n', 'L', '<cmd>bn<cr>')
 vim.keymap.set('n', 'H', '<cmd>bp<cr>')
 
+for i = 1, 9 do
+    vim.keymap.set('n', '<leader>' .. i, '<cmd>BufferLineGoToBuffer ' .. i .. '<cr>')
+end
+
+
 -- Move between split buffers
+vim.keymap.set('n', '<leader>h', '<c-w>h', { remap = true })
+vim.keymap.set('n', '<leader>l', '<c-w>l', { remap = true })
+
 vim.keymap.set('n', '<leader>vh', '<c-w>h', { remap = true })
 vim.keymap.set('n', '<leader>vj', '<c-w>j', { remap = true })
 vim.keymap.set('n', '<leader>vk', '<c-w>k', { remap = true })
@@ -88,5 +96,7 @@ end, { expr = true })
 vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
 
 -- Neotree
-vim.keymap.set('n', '<leader>x', '<cmd>Neotree toggle right<cr>', { desc = 'Toggle Neotree' })
+vim.keymap.set('n', '<leader>x', function()
+    vim.cmd('Neotree toggle right dir=' .. vim.fn.getcwd())
+end, { desc = 'Toggle Neotree' })
 

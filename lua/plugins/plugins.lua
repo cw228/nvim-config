@@ -38,8 +38,7 @@ return {
             extensions = {
                 resession = {
                     prompt_title = "Find Sessions", -- telescope prompt title
-                    dir = "session", -- directory where resession stores sessions
-                    layout = nil -- telescope picker layout, defaults to dropdown if not set
+                    dir = "session" -- directory where resession stores sessions
                 },
             }
         }
@@ -215,6 +214,19 @@ return {
                 hijack_netrw_behavior = "disabled"
             }
         }
+    },
+    {
+        'akinsho/bufferline.nvim',
+        version = "*",
+        dependencies = 'nvim-tree/nvim-web-devicons',
+        config = function()
+            local bufferline = require('bufferline')
+            bufferline.setup({
+                options = {
+                    style_preset = bufferline.style_preset.no_italic
+                }
+            })
+        end
     }
 }
 

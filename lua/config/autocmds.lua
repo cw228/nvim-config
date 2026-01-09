@@ -30,7 +30,6 @@ vim.api.nvim_create_autocmd('VimEnter', {
             if vim.fn.isdirectory(path) == 1 then
                 chdir(path)
                 load_session(vim.fn.getcwd())
-                print('hello?')
             else
                 local root = vim.fs.root(0, {'.git'})
                 if root then
@@ -61,7 +60,7 @@ vim.api.nvim_create_autocmd('ColorScheme', {
     end
 })
 
--- Recession
+-- Resession
 local resession = require('resession')
 
 -- Automatically save sessions by working directory on exit
