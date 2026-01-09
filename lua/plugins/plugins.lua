@@ -76,11 +76,10 @@ return {
                 bold = false,
                 italic = false
             },
-            before_highlight = function(group, highlight, palette)
-                highlight.bg = 'NONE'
-            end
         }
     },
+    { 'datsfilipe/vesper.nvim' },
+    { 'shaunsingh/nord.nvim' },
 	{
 		'rebelot/kanagawa.nvim',
         name = 'kanagawa',
@@ -167,6 +166,9 @@ return {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
         opts = {
+            options = {
+                theme = 'nord'
+            },
             sections = {
                 lualine_a = {},
                 lualine_b = {'branch', 'diff', 'diagnostics'},
