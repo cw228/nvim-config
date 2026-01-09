@@ -18,10 +18,9 @@ vim.keymap.set('x', '<leader>/', 'gc', { remap = true })
 vim.keymap.set('n', 'L', '<cmd>bn<cr>')
 vim.keymap.set('n', 'H', '<cmd>bp<cr>')
 
-for i = 1, 9 do
-    vim.keymap.set('n', '<leader>' .. i, '<cmd>BufferLineGoToBuffer ' .. i .. '<cr>')
-end
-
+-- for i = 1, 9 do
+--     vim.keymap.set('n', '<leader>' .. i, '<cmd>BufferLineGoToBuffer ' .. i .. '<cr>')
+-- end
 
 -- Move between split buffers
 vim.keymap.set('n', '<leader>h', '<c-w>h', { remap = true })

@@ -26,22 +26,31 @@ return {
         'nvim-telescope/telescope.nvim',
         tag = 'v0.1.9',
         dependencies = { 'nvim-lua/plenary.nvim', 'scottmckendry/pick-resession.nvim' },
-        opts = {
-            defaults = {
-                file_ignore_patterns = { "^.git/", "^./.git/" }, -- always ignore .git
-            },
-            pickers = {
-                find_files = {
-                    hidden = true -- but show other hidden files
-                }
-            },
-            extensions = {
-                resession = {
-                    prompt_title = "Find Sessions", -- telescope prompt title
-                    dir = "session" -- directory where resession stores sessions
+        config = function ()
+            local telescope = require('telescope')
+            local actions = require('telescope.actions')
+            telescope.setup({
+                defaults = {
+                    file_ignore_patterns = { "^.git/", "^./.git/" }, -- always ignore .git
+                    mappings = {
+                        i = {
+                            ["<esc>"] = actions.close
+                        }
+                    }
                 },
-            }
-        }
+                pickers = {
+                    find_files = {
+                        hidden = true -- but show other hidden files
+                    }
+                },
+                extensions = {
+                    resession = {
+                        prompt_title = "Find Sessions", -- telescope prompt title
+                        dir = "session" -- directory where resession stores sessions
+                    },
+                }
+            })
+        end
     },
     {
         'smoka7/hop.nvim',
@@ -66,7 +75,10 @@ return {
             styles = {
                 bold = false,
                 italic = false
-            }
+            },
+            before_highlight = function(group, highlight, palette)
+                highlight.bg = 'NONE'
+            end
         }
     },
 	{
@@ -215,18 +227,18 @@ return {
             }
         }
     },
-    {
-        'akinsho/bufferline.nvim',
-        version = "*",
-        dependencies = 'nvim-tree/nvim-web-devicons',
-        config = function()
-            local bufferline = require('bufferline')
-            bufferline.setup({
-                options = {
-                    style_preset = bufferline.style_preset.no_italic
-                }
-            })
-        end
-    }
+    -- {
+    --     'akinsho/bufferline.nvim',
+    --     version = "*",
+    --     dependencies = 'nvim-tree/nvim-web-devicons',
+    --     config = function()
+    --         local bufferline = require('bufferline')
+    --         bufferline.setup({
+    --             options = {
+    --                 style_preset = bufferline.style_preset.no_italic,
+    --             },
+    --         })
+    --     end
+    -- }
 }
 

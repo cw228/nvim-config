@@ -1,3 +1,20 @@
+local load_neotree_if_no_buffers = function()
+    local has_real_buffer = false
+    for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+        if vim.bo[buf].buflisted then
+            local bufname = vim.api.nvim_buf_get_name(buf)
+            if bufname ~= '' and vim.fn.isdirectory(bufname) == 0 then
+                has_real_buffer = true
+                break
+            end
+        end
+    end
+
+    if not has_real_buffer then
+        vim.cmd('Neotree show current')
+    end
+end
+
 -- Remove auto-commenting on new lines. Autocmd is needed if set in an ftplugin.
 vim.api.nvim_create_autocmd('FileType', {
     pattern = '*',
@@ -47,16 +64,13 @@ vim.api.nvim_create_autocmd('VimEnter', {
 -- Set background color to none to match terminal (fixes color mismatch around border)
 vim.api.nvim_create_autocmd('ColorScheme', {
     callback = function()
-        vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
-        vim.api.nvim_set_hl(0, 'NormalNC', { bg = 'NONE' })
-        vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
-
-        -- local float_color = '#1F1E27'
         local float_color = '#292833'
 
         vim.api.nvim_set_hl(0, 'NormalFloat', { bg = float_color })
         vim.api.nvim_set_hl(0, 'FloatBorder', { bg = float_color })
         vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = float_color })
+
+        vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', {})
     end
 })
 
@@ -73,9 +87,13 @@ vim.api.nvim_create_autocmd("VimLeavePre", {
     end,
 })
 
--- Save the session when switching to a different sessions
+-- Save the session when switching to a different session
 resession.add_hook("pre_load", function()
     vim.cmd('Neotree close')
     resession.save(vim.fn.getcwd(), { notify = false })
+end)
+
+resession.add_hook("post_load", function()
+    load_neotree_if_no_buffers()
 end)
 
