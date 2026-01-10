@@ -3,6 +3,19 @@ return {
         'neovim/nvim-lspconfig'
     },
     {
+        'ray-x/lsp_signature.nvim',
+        event = 'LspAttach',
+        opts = {
+            bind = true,
+            floating_window = true,
+            hint_enable = false, -- disable virtual text hints
+            handler_opts = {
+                border = 'rounded'
+            },
+            toggle_key = '<C-s>', -- toggle signature help with Ctrl-S if needed
+        },
+    },
+    {
         -- Requires tree-sitter-cli 
         -- https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md
         'nvim-treesitter/nvim-treesitter',
