@@ -9,8 +9,6 @@ vim.opt.splitright = true
 vim.g.nord_italic = false
 vim.g.nord_bold = false
 
--- vim.cmd.colorscheme('rose-pine')
--- vim.cmd.colorscheme('vesper')
 vim.cmd.colorscheme('nord')
 vim.highlight.priorities.semantic_tokens = 95
 
