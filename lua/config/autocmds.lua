@@ -1,3 +1,24 @@
+-- Auto-trigger LSP signature help when typing '(' or ','
+vim.api.nvim_create_autocmd('LspAttach', {
+    callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        if client and client.supports_method('textDocument/signatureHelp') then
+            vim.api.nvim_create_autocmd('TextChangedI', {
+                buffer = args.buf,
+                callback = function()
+                    local col = vim.fn.col('.') - 1
+                    if col > 0 then
+                        local char = vim.fn.getline('.'):sub(col, col)
+                        if char == '(' or char == ',' then
+                            vim.lsp.buf.signature_help()
+                        end
+                    end
+                end,
+            })
+        end
+    end,
+})
+
 -- Remove auto-commenting on new lines. Autocmd is needed if set in an ftplugin.
 vim.api.nvim_create_autocmd('FileType', {
     pattern = '*',
