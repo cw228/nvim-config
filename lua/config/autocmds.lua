@@ -47,15 +47,8 @@ vim.api.nvim_create_autocmd('VimEnter', {
 -- Set background color to none to match terminal (fixes color mismatch around border)
 vim.api.nvim_create_autocmd('ColorScheme', {
     callback = function()
-
         vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
         vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
-
-        -- local float_color = '#292833'
-        -- vim.api.nvim_set_hl(0, 'NormalFloat', { bg = float_color })
-        -- vim.api.nvim_set_hl(0, 'FloatBorder', { bg = float_color })
-        -- vim.api.nvim_set_hl(0, 'TelescopeBorder', { bg = float_color })
-
         vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', {})
     end
 })

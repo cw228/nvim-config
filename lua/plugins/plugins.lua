@@ -1,7 +1,5 @@
 return {
-    {
-        'neovim/nvim-lspconfig'
-    },
+    { 'neovim/nvim-lspconfig' },
     {
         -- Requires tree-sitter-cli 
         -- https://github.com/tree-sitter/tree-sitter/blob/master/crates/cli/README.md
