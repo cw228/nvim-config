@@ -43,6 +43,7 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- LSP
 vim.keymap.set('n', 'gh', vim.diagnostic.open_float)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gn', vim.lsp.buf.rename)
 
 -- Telescope
 local telescope = require('telescope.builtin')
@@ -71,25 +72,6 @@ vim.keymap.set('', '<leader>B', function() hop.hint_words({
         hint_position = positions.END
     })
 end)
-
--- Luasnip
-local luasnip = require('luasnip')
-
-vim.keymap.set({'i', 's'}, '<Tab>', function()
-  if luasnip.expand_or_jumpable() then
-    luasnip.expand_or_jump()
-  else
-    return '<Tab>'
-  end
-end, { expr = true })
-
-vim.keymap.set({'i', 's'}, '<S-Tab>', function()
-  if luasnip.jumpable(-1) then
-    luasnip.jump(-1)
-  else
-    return '<S-Tab>'
-  end
-end, { expr = true })
 
 -- Lazy
 vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
