@@ -4,7 +4,8 @@ vim.keymap.set('n', '<leader>E', '<cmd>Ex<cr>')
 -- Saving, quitting
 vim.keymap.set('n', '<leader>fw', '<cmd>w<cr>')
 vim.keymap.set('n', '<leader>fa', '<cmd>wa<cr>')
-vim.keymap.set('n', '<leader>fq', '<cmd>qa<cr>')
+vim.keymap.set('n', '<leader>fq', '<cmd>q<cr>')
+vim.keymap.set('n', '<leader>fQ', '<cmd>q<cr>')
 vim.keymap.set('n', '<leader>fd', '<cmd>bd<cr>')
 vim.keymap.set('n', '<leader>fp', '<cmd>bp<cr>')
 vim.keymap.set('n', '<leader>fn', '<cmd>bn<cr>')
@@ -43,6 +44,8 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- LSP
 vim.keymap.set('n', 'gh', vim.diagnostic.open_float)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
+vim.keymap.set('n', 'gn', vim.lsp.buf.rename)
+vim.keymap.set('n', 'gr', vim.lsp.buf.references)
 
 -- Telescope
 local telescope = require('telescope.builtin')

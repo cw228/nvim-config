@@ -21,7 +21,10 @@ vim.api.nvim_create_autocmd('VimEnter', {
         end
 
         local load_session = function(session)
-            require('resession').load(session, { silence_errors = true })
+            local success, _ = pcall(require('resession').load, session)
+            if not success then
+                vim.cmd('Neotree show current')
+            end
         end
 
         local first_arg = vim.fn.argv(0)
