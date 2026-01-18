@@ -114,9 +114,13 @@ return {
                     },
                     {
                         { name = 'buffer' }
+                    },
+                    {
+                        { name = 'lazydev', group_index = 0 }
                     }
                 )
             })
+
 
             -- Use buffer source for `/` and `?`
             cmp.setup.cmdline({ '/', '?' }, {
@@ -129,12 +133,11 @@ return {
             -- Use cmdline & path source for ':'
             cmp.setup.cmdline(':', {
                 mapping = cmp.mapping.preset.cmdline(),
-                sources = cmp.config.sources({
-                    { name = 'path' }
-                }, {
-                    { name = 'cmdline' }
-                }),
-                matching = { disallow_symbol_nonprefix_matching = false }
+                sources = cmp.config.sources(
+                    { { name = 'path' } },
+                    { { name = 'cmdline' } }
+                ),
+                -- matching = { disallow_symbol_nonprefix_matching = false }
             })
 
         end,
@@ -146,31 +149,36 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        opts = {
-            options = {
-                theme = 'nord'
-            },
-            sections = {
-                lualine_a = {},
-                lualine_b = {'branch', 'diff', 'diagnostics'},
-                lualine_c = {},
-                lualine_x = {},
-                lualine_y = { {'filename', path = 3} },
-                lualine_z = {'location'}
-            },
-            inactive_sections = {
-                lualine_a = {},
-                lualine_b = {},
-                lualine_c = {'filename'},
-                lualine_x = {'location'},
-                lualine_y = {},
-                lualine_z = {}
-            },
-            tabline = {},
-            winbar = {},
-            inactive_winbar = {},
-            extensions = {}
-        }
+        config = function()
+            local lualine = require('lualine')
+            local theme = require('lualine.themes.nord')
+            theme.inactive = theme.normal
+            lualine.setup({
+                options = {
+                    theme = theme
+                },
+                sections = {
+                    lualine_a = {},
+                    lualine_b = {'branch', 'diff', 'diagnostics'},
+                    lualine_c = {},
+                    lualine_x = {},
+                    lualine_y = { {'filename', path = 3} },
+                    lualine_z = {'location'}
+                },
+                inactive_sections = {
+                    lualine_a = {},
+                    lualine_b = {},
+                    lualine_c = {},
+                    lualine_x = {},
+                    lualine_y = { {'filename', path = 3} },
+                    lualine_z = {'location'}
+                },
+                tabline = {},
+                winbar = {},
+                inactive_winbar = {},
+                extensions = {}
+            })
+        end
     },
     {
         "kdheepak/lazygit.nvim",
@@ -209,6 +217,17 @@ return {
                 hijack_netrw_behavior = "disabled"
             }
         }
+    },
+    {
+        "folke/lazydev.nvim",
+        ft = "lua", -- only load on lua files
+        opts = {
+            library = {
+                -- See the configuration section for more details
+                -- Load luvit types when the `vim.uv` word is found
+                { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+            },
+        },
     },
 }
 

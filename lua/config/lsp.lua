@@ -11,8 +11,9 @@ vim.lsp.config('lua_ls', {
           globals = { 'vim' },
         },
         workspace = {
-          library = vim.api.nvim_get_runtime_file("", true),
+          -- library = vim.api.nvim_get_runtime_file("", true),
           checkThirdParty = false,
+          ignoreDir = { '.git', 'node_modules' }
         },
         telemetry = {
           enable = false,
