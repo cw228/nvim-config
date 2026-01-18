@@ -6,6 +6,7 @@ vim.wo.signcolumn = 'yes'
 vim.opt.autoread = true
 vim.opt.splitright = true
 vim.opt.wrap = false
+vim.opt.cmdheight = 0
 
 vim.g.nord_italic = false
 vim.g.nord_bold = false

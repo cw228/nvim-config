@@ -23,6 +23,12 @@ vim.keymap.set('n', 'H', '<cmd>bp<cr>')
 --     vim.keymap.set('n', '<leader>' .. i, '<cmd>BufferLineGoToBuffer ' .. i .. '<cr>')
 -- end
 
+-- Horzontal Scroll
+vim.keymap.set('n', ']', 'zl', { remap = true })
+vim.keymap.set('n', '[', 'zh', { remap = true })
+vim.keymap.set('n', '}', 'zL', { remap = true })
+vim.keymap.set('n', '{', 'zH', { remap = true })
+
 -- Move between split buffers
 vim.keymap.set('n', '<leader>h', '<c-w>h', { remap = true })
 vim.keymap.set('n', '<leader>l', '<c-w>l', { remap = true })
@@ -83,4 +89,5 @@ vim.keymap.set('n', '<leader>L', '<cmd>Lazy<cr>', { desc = 'Lazy menu' })
 vim.keymap.set('n', '<leader>x', function()
     vim.cmd('Neotree toggle right dir=' .. vim.fn.getcwd())
 end, { desc = 'Toggle Neotree' })
+
 
