@@ -152,7 +152,14 @@ return {
         config = function()
             local lualine = require('lualine')
             local theme = require('lualine.themes.nord')
-            theme.inactive = theme.normal
+            -- theme.inactive 
+            theme.inactive = vim.deepcopy(theme.normal)
+            -- theme.inactive.a.bg = "NONE"
+            theme.inactive.b.bg = theme.normal.c.bg
+            -- theme.inactive.c.bg = "NONE"
+
+            -- print('color', theme.inactive.a.bg)
+
             lualine.setup({
                 options = {
                     theme = theme
