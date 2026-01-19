@@ -51,21 +51,15 @@ vim.api.nvim_create_autocmd('VimEnter', {
 vim.api.nvim_create_autocmd('ColorScheme', {
     callback = function()
         -- local ll_theme = require('lualine.themes.nord')
+         -- require('nord')
 
         vim.api.nvim_set_hl(0, 'Normal', { bg = 'NONE' })
         vim.api.nvim_set_hl(0, 'SignColumn', { bg = 'NONE' })
-        -- vim.api.nvim_set_hl(0, 'StatusLine', {
-        --     bg = ll_theme.normal.c.bg
-        -- })
-        -- vim.api.nvim_set_hl(0, 'StatusLineNC', {
-        --     bg = ll_theme.normal.b.bg
-        -- })
         vim.api.nvim_set_hl(0, 'DiagnosticUnnecessary', {})
-        -- vim.api.nvim_set_hl(0, 'MsgArea', { bg = ll_theme.normal.c.bg, fg = ll_theme.normal.c.fg })
-        -- vim.api.nvim_set_hl(0, 'WinSeparator', {
-        --     bg = 'NONE',
-        --     fg = ll_theme.normal.b.bg
-        -- })
+        vim.api.nvim_set_hl(0, 'WinSeparator', {
+            bg = 'NONE',
+            fg = '#434C5E'
+        })
     end
 })
 

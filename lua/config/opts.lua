@@ -16,7 +16,3 @@ vim.highlight.priorities.semantic_tokens = 95
 
 vim.g.netrw_banner = 0
 
-vim.opt.fillchars:append({
-    vert = "⎸"
-})
-
