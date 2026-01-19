@@ -154,21 +154,19 @@ return {
         config = function()
             local lualine = require('lualine')
             local theme = require('lualine.themes.nord')
-            -- theme.inactive 
-            theme.inactive = vim.deepcopy(theme.normal)
-            -- theme.inactive.a.bg = "NONE"
-            theme.inactive.b.bg = theme.normal.c.bg
-            -- theme.inactive.c.bg = "NONE"
 
-            -- print('color', theme.inactive.a.bg)
+            -- theme.normal.a.bg = "#5C7EA8"
+            -- theme.normal.a.fg = theme.normal.b.fg
+            theme.inactive = vim.deepcopy(theme.normal)
+            theme.inactive.b.bg = theme.normal.c.bg
 
             lualine.setup({
                 options = {
                     theme = theme
                 },
                 sections = {
-                    lualine_a = {},
-                    lualine_b = {'branch', 'diff', 'diagnostics'},
+                    lualine_a = {'branch'},
+                    lualine_b = {'diff', 'diagnostics'},
                     lualine_c = {},
                     lualine_x = {},
                     lualine_y = { {'filename', path = 3} },
@@ -180,7 +178,7 @@ return {
                     lualine_c = {},
                     lualine_x = {},
                     lualine_y = { {'filename', path = 3} },
-                    lualine_z = {'location'}
+                    lualine_z = {'location'},
                 },
                 tabline = {},
                 winbar = {},
