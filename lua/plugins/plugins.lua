@@ -148,45 +148,45 @@ return {
         'stevearc/resession.nvim',
         opts = {},
     },
-    {
-        'nvim-lualine/lualine.nvim',
-        dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function()
-            local lualine = require('lualine')
-            local theme = require('lualine.themes.nord')
-
-            -- theme.normal.a.bg = "#5C7EA8"
-            -- theme.normal.a.fg = theme.normal.b.fg
-            theme.inactive = vim.deepcopy(theme.normal)
-            theme.inactive.b.bg = theme.normal.c.bg
-
-            lualine.setup({
-                options = {
-                    theme = theme
-                },
-                sections = {
-                    lualine_a = {'branch'},
-                    lualine_b = {'diff', 'diagnostics'},
-                    lualine_c = {},
-                    lualine_x = {},
-                    lualine_y = { {'filename', path = 3} },
-                    lualine_z = {'location'}
-                },
-                inactive_sections = {
-                    lualine_a = {},
-                    lualine_b = {},
-                    lualine_c = {},
-                    lualine_x = {},
-                    lualine_y = { {'filename', path = 3} },
-                    lualine_z = {'location'},
-                },
-                tabline = {},
-                winbar = {},
-                inactive_winbar = {},
-                extensions = {}
-            })
-        end
-    },
+    -- {
+    --     'nvim-lualine/lualine.nvim',
+    --     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    --     config = function()
+    --         local lualine = require('lualine')
+    --         local theme = require('lualine.themes.nord')
+    --
+    --         -- theme.normal.a.bg = "#5C7EA8"
+    --         -- theme.normal.a.fg = theme.normal.b.fg
+    --         theme.inactive = vim.deepcopy(theme.normal)
+    --         theme.inactive.b.bg = theme.normal.c.bg
+    --
+    --         lualine.setup({
+    --             options = {
+    --                 theme = theme
+    --             },
+    --             sections = {
+    --                 lualine_a = {'branch'},
+    --                 lualine_b = {'diff', 'diagnostics'},
+    --                 lualine_c = {},
+    --                 lualine_x = {},
+    --                 lualine_y = { {'filename', path = 3} },
+    --                 lualine_z = {'location'}
+    --             },
+    --             inactive_sections = {
+    --                 lualine_a = {},
+    --                 lualine_b = {},
+    --                 lualine_c = {},
+    --                 lualine_x = {},
+    --                 lualine_y = { {'filename', path = 3} },
+    --                 lualine_z = {'location'},
+    --             },
+    --             tabline = {},
+    --             winbar = {},
+    --             inactive_winbar = {},
+    --             extensions = {}
+    --         })
+    --     end
+    -- },
     {
         "kdheepak/lazygit.nvim",
         lazy = true,
