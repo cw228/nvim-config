@@ -1,11 +1,22 @@
 -- Explore
 vim.keymap.set('n', '<leader>E', '<cmd>Ex<cr>')
 
+-- Movement
+vim.keymap.set('n', 'J', 'mzJ`z')
+vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
+vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
+
+-- Yanking and pasting
+vim.keymap.set('x', 'p', 'P')
+vim.keymap.set({'n', 'x'}, '<leader>y', '\"+y')
+vim.keymap.set({'n', 'x'}, '<leader>y', '\"+y')
+vim.keymap.set({'n', 'x'}, '<leader>d', '\"_d')
+
 -- Saving, quitting
 vim.keymap.set('n', '<leader>fw', '<cmd>w<cr>')
 vim.keymap.set('n', '<leader>fa', '<cmd>wa<cr>')
 vim.keymap.set('n', '<leader>fq', '<cmd>q<cr>')
-vim.keymap.set('n', '<leader>fQ', '<cmd>qa<cr>')
+vim.keymap.set('n', '<leader>fq', '<cmd>qa<cr>')
 vim.keymap.set('n', '<leader>fd', '<cmd>bd<cr>')
 vim.keymap.set('n', '<leader>fp', '<cmd>bp<cr>')
 vim.keymap.set('n', '<leader>fn', '<cmd>bn<cr>')
@@ -52,6 +63,9 @@ vim.keymap.set('n', 'gh', vim.diagnostic.open_float)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gn', vim.lsp.buf.rename)
 vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+
+-- Tmux
+vim.keymap.set('n', '<c-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
 
 -- Telescope
 local telescope = require('telescope.builtin')
