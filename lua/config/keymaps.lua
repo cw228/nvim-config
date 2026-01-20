@@ -6,7 +6,7 @@ vim.keymap.set('n', 'J', 'mzJ`z')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 
--- Yanking and pasting
+-- Yanking, pasting
 vim.keymap.set('x', 'p', 'P')
 vim.keymap.set({'n', 'x'}, '<leader>y', '\"+y')
 vim.keymap.set({'n', 'x'}, '<leader>y', '\"+y')
@@ -16,11 +16,13 @@ vim.keymap.set({'n', 'x'}, '<leader>d', '\"_d')
 vim.keymap.set('n', '<leader>fw', '<cmd>w<cr>')
 vim.keymap.set('n', '<leader>fa', '<cmd>wa<cr>')
 vim.keymap.set('n', '<leader>fq', '<cmd>q<cr>')
-vim.keymap.set('n', '<leader>fq', '<cmd>qa<cr>')
+vim.keymap.set('n', '<leader>fQ', '<cmd>qa<cr>')
 vim.keymap.set('n', '<leader>fd', '<cmd>bd<cr>')
 vim.keymap.set('n', '<leader>fp', '<cmd>bp<cr>')
 vim.keymap.set('n', '<leader>fn', '<cmd>bn<cr>')
 vim.keymap.set('n', '<leader>fh', '<cmd>%bd|e#|bd#<cr>')
+
+-- Quickfix?
 
 -- Commenting
 vim.keymap.set('n', '<leader>/', 'gcc', { remap = true })
@@ -55,8 +57,9 @@ vim.keymap.set('n', '<', '<<^', { remap = true })
 vim.keymap.set('x', '>', '>gvw', { remap = true })
 vim.keymap.set('x', '<', '<gv^', { remap = true })
 
--- Search
+-- Search, replace 
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
+vim.keymap.set('n', '<leader>*', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>')
 
 -- LSP
 vim.keymap.set('n', 'gh', vim.diagnostic.open_float)
