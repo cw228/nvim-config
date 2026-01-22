@@ -17,10 +17,6 @@ vim.keymap.set('n', '<leader>fw', '<cmd>w<cr>')
 vim.keymap.set('n', '<leader>fa', '<cmd>wa<cr>')
 vim.keymap.set('n', '<leader>fq', '<cmd>q<cr>')
 vim.keymap.set('n', '<leader>fQ', '<cmd>qa<cr>')
-vim.keymap.set('n', '<leader>fd', '<cmd>bd<cr>')
-vim.keymap.set('n', '<leader>fp', '<cmd>bp<cr>')
-vim.keymap.set('n', '<leader>fn', '<cmd>bn<cr>')
-vim.keymap.set('n', '<leader>fh', '<cmd>%bd|e#|bd#<cr>')
 
 -- Quickfix?
 
@@ -29,8 +25,10 @@ vim.keymap.set('n', '<leader>/', 'gcc', { remap = true })
 vim.keymap.set('x', '<leader>/', 'gc', { remap = true })
 
 -- Buffers
-vim.keymap.set('n', 'L', '<cmd>bn<cr>')
-vim.keymap.set('n', 'H', '<cmd>bp<cr>')
+vim.keymap.set('n', '<leader>fd', '<cmd>bd<cr>')
+vim.keymap.set('n', '<leader>fp', '<cmd>bp<cr>')
+vim.keymap.set('n', '<leader>fn', '<cmd>bn<cr>')
+vim.keymap.set('n', '<leader>fh', '<cmd>%bd|e#|bd#<cr>')
 
 -- for i = 1, 9 do
 --     vim.keymap.set('n', '<leader>' .. i, '<cmd>BufferLineGoToBuffer ' .. i .. '<cr>')
