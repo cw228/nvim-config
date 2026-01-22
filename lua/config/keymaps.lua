@@ -18,6 +18,11 @@ vim.keymap.set('n', '<leader>fa', '<cmd>wa<cr>')
 vim.keymap.set('n', '<leader>fq', '<cmd>q<cr>')
 vim.keymap.set('n', '<leader>fQ', '<cmd>qa<cr>')
 
+-- Formatting
+vim.keymap.set({'n', 'x'}, '<leader>ff', function ()
+    require('conform').format()
+end)
+
 -- Quickfix?
 
 -- Commenting

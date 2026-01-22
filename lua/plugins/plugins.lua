@@ -241,7 +241,8 @@ return {
         opts = {
             formatters_by_ft = {
                 python = { "black" },
-                terraform = { "terraform_fmt" }
+                terraform = { "terraform_fmt" },
+                lua = { "stylua" }
             }
         },
     }
