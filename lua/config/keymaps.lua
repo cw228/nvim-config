@@ -31,9 +31,8 @@ vim.keymap.set('x', '<leader>/', 'gc', { remap = true })
 
 -- Buffers
 vim.keymap.set('n', '<leader>fd', '<cmd>bd<cr>')
-vim.keymap.set('n', '<leader>fp', '<cmd>bp<cr>')
-vim.keymap.set('n', '<leader>fn', '<cmd>bn<cr>')
-vim.keymap.set('n', '<leader>fh', '<cmd>%bd|e#|bd#<cr>')
+vim.keymap.set('n', '<leader>fh', '<cmd>%bd|e#|bd#<cr>') -- delete other buffer
+vim.keymap.set('n', '<leader>fb', '<c-^>') -- previously opened buffer
 
 -- for i = 1, 9 do
 --     vim.keymap.set('n', '<leader>' .. i, '<cmd>BufferLineGoToBuffer ' .. i .. '<cr>')
@@ -68,7 +67,12 @@ vim.keymap.set('n', '<leader>*', ':%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left>
 vim.keymap.set('n', 'gh', vim.diagnostic.open_float)
 vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gn', vim.lsp.buf.rename)
-vim.keymap.set('n', 'gr', vim.lsp.buf.references)
+
+-- Trouble
+vim.keymap.set('n', '<leader>dd', '<cmd>Trouble diagnostics toggle<cr>')
+vim.keymap.set('n', '<leader>db', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>')
+vim.keymap.set('n', '<leader>dr', '<cmd>Trouble lsp toggle focus=true<cr>')
+vim.keymap.set('n', '<leader>ds', '<cmd>Trouble symbols toggle focus=true win.position=bottom<cr>')
 
 -- Tmux
 vim.keymap.set('n', '<c-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
