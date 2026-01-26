@@ -12,6 +12,7 @@ vim.opt.incsearch = true
 vim.opt.scrolloff = 8
 vim.opt.smartindent = true
 vim.opt.report = 9999
+vim.opt.cinoptions:append('L0')
 
 vim.g.nord_italic = false
 vim.g.nord_bold = false
