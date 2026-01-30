@@ -7,7 +7,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-    pattern = {'lua', 'python', 'sh', 'c', 'cpp', 'terraform', 'terraform-vars', 'cmake'},
+    pattern = {'lua', 'python', 'sh', 'c', 'cpp', 'terraform', 'terraform-vars', 'cmake', 'shaderslang'},
     callback = function()
         vim.treesitter.start()
     end,

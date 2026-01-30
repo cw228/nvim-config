@@ -15,7 +15,8 @@ return {
                 'cpp',
                 'bash',
                 'terraform',
-                'cmake'
+                'cmake',
+                'slang'
             })
         end,
     },
@@ -220,5 +221,11 @@ return {
         "folke/trouble.nvim",
         opts = {}, -- for default options, refer to the configuration section for custom setup.
         cmd = "Trouble",
+    },
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "InsertEnter",
+        opts = {
+        },
     }
 }
