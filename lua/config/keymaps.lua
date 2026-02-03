@@ -85,6 +85,7 @@ vim.keymap.set('n', '<leader>r', telescope.live_grep, { desc = 'Telescope live g
 vim.keymap.set('n', '<leader>t', telescope.buffers, { desc = 'Telescope buffers' })
 vim.keymap.set('n', '<leader>c', telescope.git_branches, { desc = 'Telescope git branches' })
 vim.keymap.set('n', '<leader>s', '<cmd>Telescope resession<cr>', { desc = 'Telescope find sessions' })
+vim.keymap.set('n', '<leader>o', telescope.lsp_document_symbols, { desc = 'Document symbols' })
 
 -- Hop
 local hop = require('hop')

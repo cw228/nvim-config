@@ -8,7 +8,8 @@ return {
         lazy = false,
         build = ":TSUpdate",
         config = function()
-            require('nvim-treesitter').install({
+            local treesitter = require('nvim-treesitter');
+            treesitter.install({
                 'python',
                 'lua',
                 'c',
@@ -17,6 +18,12 @@ return {
                 'terraform',
                 'cmake',
                 'slang'
+            })
+
+            treesitter.setup({
+                indent = {
+                    enable = true
+                }
             })
         end,
     },
