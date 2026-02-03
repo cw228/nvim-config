@@ -21,7 +21,6 @@ vim.lsp.config('lua_ls', {
       },
     },
 })
-
 vim.lsp.config('pyright', { capabilities = capabilities })
 vim.lsp.config('clangd', {
     capabilities = capabilities,
@@ -32,6 +31,7 @@ vim.lsp.config('clangd', {
     },
 })
 vim.lsp.config('terraformls', { capabilities = capabilities })
+vim.lsp.config('slangd', { capabilities = capabilities })
 
 vim.lsp.enable('lua_ls')
 vim.lsp.enable('pyright')

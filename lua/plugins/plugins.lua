@@ -225,13 +225,13 @@ return {
         opts = {}, -- for default options, refer to the configuration section for custom setup.
         cmd = "Trouble",
     },
-    {
-        "ray-x/lsp_signature.nvim",
-        event = "InsertEnter",
-        opts = {
-            handler_opts = {
-                border = { "", "", "", " ", "", "", "", " " },
-            },
-        },
-    }
+    -- {
+    --     "ray-x/lsp_signature.nvim",
+    --     event = "InsertEnter",
+    --     opts = {
+    --         handler_opts = {
+    --             border = { "", "", "", " ", "", "", "", " " },
+    --         },
+    --     },
+    -- }
 }
