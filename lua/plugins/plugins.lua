@@ -106,6 +106,9 @@ return {
             local cmp = require('cmp')
 
             cmp.setup({
+                performance = {
+                    max_view_entries = 10,
+                },
                 window = {
                     -- completion = cmp.config.window.bordered(),
                     -- documentation = cmp.config.window.bordered(),
@@ -233,6 +236,9 @@ return {
         "ray-x/lsp_signature.nvim",
         event = "InsertEnter",
         opts = {
+            handler_opts = {
+                border = { "", "", "", " ", "", "", "", " " },
+            },
         },
     }
 }
