@@ -104,7 +104,6 @@ return {
         },
         config = function()
             local cmp = require('cmp')
-
             cmp.setup({
                 performance = {
                     max_view_entries = 10,
@@ -119,7 +118,7 @@ return {
                     ['<C-Space>'] = cmp.mapping.complete(),
                     ['<C-e>'] = cmp.mapping.abort(),
                     ['<CR>'] = cmp.mapping.confirm({ select = true }),
-                    ['<Tab>'] = cmp.mapping.confirm({ select = true }),
+                    ['<Tab>'] = cmp.mapping.select_next_item(),
                 }),
                 sources = cmp.config.sources(
                     {
