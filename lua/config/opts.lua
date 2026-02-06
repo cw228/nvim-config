@@ -15,6 +15,7 @@ vim.opt.cinoptions:append('L0')
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.smartindent = true
+vim.opt.swapfile = false
 
 vim.g.nord_italic = false
 vim.g.nord_bold = false
