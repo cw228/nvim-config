@@ -11,7 +11,6 @@ vim.lsp.config('lua_ls', {
           globals = { 'vim' },
         },
         workspace = {
-          -- library = vim.api.nvim_get_runtime_file("", true),
           checkThirdParty = false,
           ignoreDir = { '.git', 'node_modules' }
         },
@@ -38,4 +37,16 @@ vim.lsp.enable('pyright')
 vim.lsp.enable('clangd')
 vim.lsp.enable('terraformls')
 vim.lsp.enable('slangd')
+
+-- Filter out diagnostics from files outside the current project root
+local orig_handler = vim.lsp.handlers["textDocument/publishDiagnostics"]
+vim.lsp.handlers["textDocument/publishDiagnostics"] = function(err, result, ctx, config)
+    if result and result.uri then
+        local path = vim.uri_to_fname(result.uri)
+        if not vim.startswith(path, vim.fn.getcwd()) then
+            result.diagnostics = {}
+        end
+    end
+    return orig_handler(err, result, ctx, config)
+end
 
