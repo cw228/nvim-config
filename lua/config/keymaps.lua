@@ -34,10 +34,6 @@ vim.keymap.set('n', '<leader>fd', '<cmd>bd<cr>')
 vim.keymap.set('n', '<leader>fh', '<cmd>%bd|e#|bd#<cr>') -- delete other buffer
 vim.keymap.set('n', '<leader>fb', '<c-^>') -- previously opened buffer
 
--- for i = 1, 9 do
---     vim.keymap.set('n', '<leader>' .. i, '<cmd>BufferLineGoToBuffer ' .. i .. '<cr>')
--- end
-
 -- Horzontal Scroll
 vim.keymap.set('n', ']', 'zl', { remap = true })
 vim.keymap.set('n', '[', 'zh', { remap = true })
@@ -69,10 +65,9 @@ vim.keymap.set('n', 'gd', vim.lsp.buf.definition)
 vim.keymap.set('n', 'gn', vim.lsp.buf.rename)
 
 -- Trouble
-vim.keymap.set('n', '<leader>dd', '<cmd>Trouble diagnostics toggle<cr>')
-vim.keymap.set('n', '<leader>db', '<cmd>Trouble diagnostics toggle filter.buf=0<cr>')
+vim.keymap.set('n', '<leader>dd', '<cmd>Trouble diagnostics toggle focus=true<cr>')
+vim.keymap.set('n', '<leader>db', '<cmd>Trouble diagnostics toggle filter.buf=0 focus=true<cr>')
 vim.keymap.set('n', '<leader>dr', '<cmd>Trouble lsp toggle focus=true<cr>')
-vim.keymap.set('n', '<leader>ds', '<cmd>Trouble symbols toggle focus=true win.position=bottom<cr>')
 
 -- Tmux
 vim.keymap.set('n', '<c-f>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
