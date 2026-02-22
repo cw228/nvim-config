@@ -200,7 +200,11 @@ return {
         lazy = false, -- neo-tree will lazily load itself
         opts = {
             filesystem = {
-                hijack_netrw_behavior = "disabled"
+                hijack_netrw_behavior = "disabled",
+                filtered_items = {
+                    hide_dotfiles = false,
+                    hide_hidden = false,
+                }
             }
         }
     },
