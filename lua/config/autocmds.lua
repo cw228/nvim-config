@@ -60,6 +60,9 @@ vim.api.nvim_create_autocmd('ColorScheme', {
             bg = 'NONE',
             fg = '#434C5E'
         })
+
+        vim.api.nvim_set_hl(0, "@property.cpp", { fg = "#ECEFF4" })
+        vim.api.nvim_set_hl(0, "StatusLine", { bg = "#2E3440" })
     end
 })
 
