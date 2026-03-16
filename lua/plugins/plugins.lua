@@ -47,6 +47,9 @@ return {
                 pickers = {
                     find_files = {
                         hidden = true -- but show other hidden files
+                    },
+                    lsp_document_symbols = {
+                        symbol_width = 50,
                     }
                 },
                 extensions = {
