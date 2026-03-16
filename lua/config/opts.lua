@@ -16,6 +16,7 @@ vim.opt.ignorecase = true
 vim.opt.smartcase = true
 vim.opt.smartindent = true
 vim.opt.swapfile = false
+vim.opt.termguicolors = true
 
 vim.g.nord_italic = false
 vim.g.nord_bold = false
